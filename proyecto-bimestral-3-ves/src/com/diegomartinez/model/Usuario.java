@@ -1,18 +1,36 @@
 package com.diegomartinez.model;
 
 public class Usuario {
+    private int idUsuario;
     private String nombreUsuario;
     private String password;
     private String nombreCompleto;
-    
+    private String correo;
+
     public Usuario() {
-    
     }
-    
-    public Usuario(String nombreUsuario, String password, String nombreCompleto) {
+
+    public Usuario(String nombreCompleto, String nombreUsuario, String correo, String password) {
         this.nombreCompleto = nombreCompleto;
-        this.password = password;
         this.nombreUsuario = nombreUsuario;
+        this.correo = correo;
+        this.password = password;
+    }
+
+    public Usuario(int idUsuario, String nombreCompleto, String nombreUsuario, String correo, String password) {
+        this.idUsuario = idUsuario;
+        this.nombreCompleto = nombreCompleto;
+        this.nombreUsuario = nombreUsuario;
+        this.correo = correo;
+        this.password = password;
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getNombreUsuario() {
@@ -37,5 +55,13 @@ public class Usuario {
 
     public void setNombreCompleto(String nombreCompleto) {
         this.nombreCompleto = nombreCompleto;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 }

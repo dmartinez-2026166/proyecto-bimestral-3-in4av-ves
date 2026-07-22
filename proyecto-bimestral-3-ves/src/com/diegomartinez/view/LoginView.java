@@ -3,6 +3,7 @@ package com.diegomartinez.view;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -23,7 +24,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
 public class LoginView extends BorderPane{
-    private static LoginView instanciaLoginView;
+        private static LoginView instanciaLoginView;
     private Button btnCerrarVentana;
     private Label lblTituloVentana;
     private HBox barraDeOpciones;
@@ -37,6 +38,8 @@ public class LoginView extends BorderPane{
     private GridPane formulario;
     private ImageView imgLogoLogin;
     private Button btnIniciarSesion;
+    private Hyperlink lnkRegistro;
+    private Label lblMensaje;
     
     private String RUTA_ESTILOS = "/com/diegomartinez/styles/";
     
@@ -79,10 +82,17 @@ public class LoginView extends BorderPane{
         formulario.add(pwdClave, 1, 1);
         
         btnIniciarSesion = new Button("Iniciar Sesion");
-        
+
+        lblMensaje = new Label("");
+        lblMensaje.setWrapText(true);
+        lblMensaje.setMaxWidth(320);
+        lblMensaje.setAlignment(Pos.CENTER);
+
+        lnkRegistro = new Hyperlink("¿No tienes cuenta? Regístrate aquí");
+
         cajaVertical.setAlignment(Pos.CENTER);
         
-        cajaVertical.getChildren().addAll(formulario, btnIniciarSesion);
+        cajaVertical.getChildren().addAll(formulario, btnIniciarSesion, lblMensaje, lnkRegistro);
         this.setCenter(cajaVertical);
     }
 
@@ -175,6 +185,22 @@ public class LoginView extends BorderPane{
         this.barraDeOpciones = barraDeOpciones;
     }
 
+    public Hyperlink getLnkRegistro() {
+        return lnkRegistro;
+    }
+
+    public void setLnkRegistro(Hyperlink lnkRegistro) {
+        this.lnkRegistro = lnkRegistro;
+    }
+
+    public Label getLblMensaje() {
+        return lblMensaje;
+    }
+
+    public void setLblMensaje(Label lblMensaje) {
+        this.lblMensaje = lblMensaje;
+    }
+
     public static LoginView getInstanciaLoginView() {
         if (instanciaLoginView == null) {
             instanciaLoginView = new LoginView();
@@ -185,5 +211,4 @@ public class LoginView extends BorderPane{
     public static void setInstanciaLoginView(LoginView instanciaLoginView) {
         LoginView.instanciaLoginView = instanciaLoginView;
     }
-
 }

@@ -2,6 +2,7 @@ package com.diegomartinez.controller;
 
 import com.diegomartinez.view.BienvenidaView;
 import com.diegomartinez.view.LoginView;
+import com.diegomartinez.view.RegistroView;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -11,7 +12,7 @@ import javafx.stage.StageStyle;
 import javax.swing.JOptionPane;
 
 public class SceneManager {
-     private Stage escenarioPrincipal;
+    private Stage escenarioPrincipal;
     private Stage escenarioSecundario;
     private Scene escenaPrincipal;
     private static SceneManager instanciaSceneManager;
@@ -66,6 +67,23 @@ public class SceneManager {
             objetoNulo.printStackTrace();
         } catch (Exception errorPadre) {
             JOptionPane.showMessageDialog(null, "Error padre: metodo Ventana Login");
+            errorPadre.printStackTrace();
+        }
+    }
+
+    public void ventanaRegistro() {
+        try {
+            this.escenarioPrincipal.initStyle(StageStyle.TRANSPARENT);
+            RegistroView registro = new RegistroView();
+            cambiarEscena(registro, 480, 560);
+            this.escenaPrincipal.setFill(Color.TRANSPARENT);
+            new RegistroController(registro);
+
+        } catch (NullPointerException objetoNulo) {
+            JOptionPane.showMessageDialog(null, "Error de objeto nulo: Ventana Registro");
+            objetoNulo.printStackTrace();
+        } catch (Exception errorPadre) {
+            JOptionPane.showMessageDialog(null, "Error padre: metodo Ventana Registro");
             errorPadre.printStackTrace();
         }
     }

@@ -45,3 +45,20 @@ PasswordField.error{
 .bienvenida-boton:hover {
     -fx-background-color: #c0392b;
 }
+
+.mensaje-error {
+    -fx-text-fill: #c0392b;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.mensaje-exito {
+    -fx-text-fill: #27ae60;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+Hyperlink {
+    -fx-text-fill: #202087;
+    -fx-font-size: 11px;
+}
