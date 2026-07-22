@@ -56,8 +56,7 @@ public class SceneManager {
 
     public void ventanaLogin() {
         try {
-            this.escenarioPrincipal.initStyle(StageStyle.TRANSPARENT);
-            LoginView login = LoginView.getInstanciaLoginView();
+            LoginView login = new LoginView();
             cambiarEscena(login, 450, 500);
             this.escenaPrincipal.setFill(Color.TRANSPARENT);
             new LoginController(login);
@@ -73,7 +72,6 @@ public class SceneManager {
 
     public void ventanaRegistro() {
         try {
-            this.escenarioPrincipal.initStyle(StageStyle.TRANSPARENT);
             RegistroView registro = new RegistroView();
             cambiarEscena(registro, 480, 560);
             this.escenaPrincipal.setFill(Color.TRANSPARENT);

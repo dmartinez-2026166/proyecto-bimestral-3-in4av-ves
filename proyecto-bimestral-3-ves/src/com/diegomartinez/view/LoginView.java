@@ -23,8 +23,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
-public class LoginView extends BorderPane{
-        private static LoginView instanciaLoginView;
+public class LoginView extends BorderPane {
+
+    private static LoginView instanciaLoginView;
     private Button btnCerrarVentana;
     private Label lblTituloVentana;
     private HBox barraDeOpciones;
@@ -40,21 +41,21 @@ public class LoginView extends BorderPane{
     private Button btnIniciarSesion;
     private Hyperlink lnkRegistro;
     private Label lblMensaje;
-    
+
     private String RUTA_ESTILOS = "/com/diegomartinez/styles/";
-    
-    private LoginView() {
+
+    public LoginView() {
         this.getStylesheets().add(RUTA_ESTILOS + "LoginStyles.css");
         this.setPadding(new Insets(15));
         this.setBorder(new Border(
-                new BorderStroke(Paint.valueOf("#202087"), 
+                new BorderStroke(Paint.valueOf("#202087"),
                         BorderStrokeStyle.SOLID,
                         new CornerRadii(22),
                         new BorderWidths(10))
         ));
 
         this.setBackground(new Background(
-                new BackgroundFill(Color.WHITE, 
+                new BackgroundFill(Color.WHITE,
                         new CornerRadii(25),
                         Insets.EMPTY)
         ));
@@ -63,24 +64,24 @@ public class LoginView extends BorderPane{
 
         btnCerrarVentana = new Button("X");
         lblTituloVentana = new Label("JAVAFX - SIMULACION LOGIN");
-        
+
         barraDeOpciones.getChildren().addAll(btnCerrarVentana, lblTituloVentana);
         this.setTop(barraDeOpciones);
-        
+
         cajaVertical = new VBox();
         formulario = new GridPane();
-        
+
         lblNombreUsuario = new Label("ingrese su nombre usuario");
         txtNombreUsuario = new TextField();
         lblClave = new Label("Ingrese su contraseña");
         pwdClave = new PasswordField();
-        
-        formulario.add(lblNombreUsuario,0 ,0);
-        formulario.add(txtNombreUsuario,1, 0);
-        
-        formulario.add(lblClave,0 , 1);
+
+        formulario.add(lblNombreUsuario, 0, 0);
+        formulario.add(txtNombreUsuario, 1, 0);
+
+        formulario.add(lblClave, 0, 1);
         formulario.add(pwdClave, 1, 1);
-        
+
         btnIniciarSesion = new Button("Iniciar Sesion");
 
         lblMensaje = new Label("");
@@ -91,7 +92,7 @@ public class LoginView extends BorderPane{
         lnkRegistro = new Hyperlink("¿No tienes cuenta? Regístrate aquí");
 
         cajaVertical.setAlignment(Pos.CENTER);
-        
+
         cajaVertical.getChildren().addAll(formulario, btnIniciarSesion, lblMensaje, lnkRegistro);
         this.setCenter(cajaVertical);
     }
@@ -160,7 +161,6 @@ public class LoginView extends BorderPane{
         this.btnIniciarSesion = btnIniciarSesion;
     }
 
-    
     public Button getBtnCerrarVentana() {
         return btnCerrarVentana;
     }
