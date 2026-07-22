@@ -9,17 +9,14 @@ public class ConexionDatabase {
     private static ConexionDatabase instanciaConexionDatabase;
     private String usuario = "IN4AV";
     private String clave = "dmartinez2026166";
-    private String url = "jdbc:mysql://localhost:3306/gestor_usuarios_in4av";
+    private String url = "jdbc:mysql://localhost:3306/proyecto_b3_2026166_in4av";
     private final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private Connection instanciaConnection;
 
-    //Ocultar el constructor vacío
     private ConexionDatabase() {
         try {
             Class.forName(DRIVER);
-            //Crear la conexion a la DB
             instanciaConnection = DriverManager.getConnection(url, usuario, clave);
-//            System.out.println("Conexión exitosa");
         } catch (ClassNotFoundException errorClassNotFound) {
             System.out.println("Error de clase no encontrada");
         } catch (SQLException errorSQL) {
